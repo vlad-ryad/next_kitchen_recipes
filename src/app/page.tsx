@@ -1,6 +1,8 @@
-export default function Home() {
-  return (
-    <h1>Hello from Home</h1>
-  );
-}
+export default function HomePage() {
+	return (
+		<div>
+			<h1>Добро пожаловать на главную страницу!</h1>
 
+		</div>
+	);
+}
