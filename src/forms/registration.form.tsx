@@ -1,7 +1,8 @@
 "use client";
 
-//import { registerUser } from "@/actions/register";
-import { Button, Form, Input } from "@heroui/react";
+
+import { registerUser } from "@/actions/register";
+import { Button, form, Form, Input } from "@heroui/react";
 import { useState } from "react";
 
 interface IProps {
@@ -22,11 +23,16 @@ const RegistrationForm = ({ onClose }: IProps) => {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		//await registerUser(formData);
+
 		console.log("Form submitted", formData);
 
-
 		onClose();
+
+		const result = await registerUser(formData);
+
+		console.log("result");
+
+
 	};
 
 	return (
