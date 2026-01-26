@@ -2,7 +2,7 @@
 import { layoutConfig } from "@/config/layout.config";
 import { siteConfig } from "@/config/site.config";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button } from "@heroui/react";
-import { label } from "framer-motion/client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
