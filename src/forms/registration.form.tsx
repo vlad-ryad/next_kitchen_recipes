@@ -1,6 +1,5 @@
 "use client";
 
-
 import { registerUser } from "@/actions/register";
 import { Button, form, Form, Input } from "@heroui/react";
 import { useState } from "react";
