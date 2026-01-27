@@ -1,20 +1,20 @@
 export const siteConfig = {
-	title: "Татарская кухня",
-	description: "Рецепты татарской кухни",
-	navItems: [
-		{ href: "/", label: "Рецепты" },
-		{ href: "/ingredients", label: "Ингредиенты" },
-		{ href: "/about", label: "О нас" }
-	],
-	pagesContent: {
-		"/": {
-			content: "Здесь будут рецепты..."
-		},
-		"/ingredients": {
-			content: "Традиционные ингредиенты татарской кухни..."
-		},
-		"/about": {
-			content: `
+  title: "Татарская кухня",
+  description: "Рецепты татарской кухни",
+  navItems: [
+    { href: "/", label: "Рецепты" },
+    { href: "/ingredients", label: "Ингредиенты" },
+    { href: "/about", label: "О нас" }
+  ],
+  pagesContent: {
+    "/": {
+      content: "Здесь будут рецепты..."
+    },
+    "/ingredients": {
+      content: "Традиционные ингредиенты татарской кухни..."
+    },
+    "/about": {
+      content: `
         <p>
           Татарская кухня — это яркое сочетание сытных мясных блюд, ароматной выпечки 
           и нежных молочных продуктов, отражающее богатую историю и гостеприимство 
@@ -45,6 +45,6 @@ export const siteConfig = {
           </li>
         </ul>
       `
-		}
-	}
+    }
+  }
 };
