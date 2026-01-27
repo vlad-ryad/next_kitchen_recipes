@@ -1,9 +1,8 @@
 "use server";
 
-
 import { IFormData } from "@/types/form-data";
 import prisma from "@/utils/prisma";
-//import { saltAndHashPassword } from "@/utils/password";
+import { saltAndHashPassword } from "@/utils/password";
 
 
 export async function registerUser(formData: IFormData) {
@@ -18,6 +17,7 @@ export async function registerUser(formData: IFormData) {
 	}
 
 	try {
+		const pwHash = await saltAndHashPassword(password);
 		const existingUser = await prisma.user.findUnique({
 			where: { email }
 		});
@@ -26,12 +26,10 @@ export async function registerUser(formData: IFormData) {
 			return { error: "Пользователь с таким email уже существует" };
 		}
 
-		//const pwHash = await saltAndHashPassword(password);
-
 		const user = await prisma.user.create({
 			data: {
 				email: email,
-				password: password,
+				password: pwHash,
 			}
 		});
 
