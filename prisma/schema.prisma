@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
@@ -65,4 +65,34 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Ingredient {
+  id            String   @id @default(uuid())
+  name          String
+  category      Category
+  unit          Unit
+  pricePerUnit  Float?
+  description   String?
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("ingredients")
+}
+
+enum Category {
+  VEGETABLES
+  FRUITS
+  MEAT
+  DAIRY
+  SPICES
+  OTHER
+}
+
+enum Unit {
+  GRAMS
+  KILOGRAMS
+  LITERS
+  MILLILITERS
+  PIECES
 }
