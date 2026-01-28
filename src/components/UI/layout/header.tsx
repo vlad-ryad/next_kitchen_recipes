@@ -16,11 +16,10 @@ import { useAuthStore } from "../../../store/auth.store";
 export const Logo = () => {
 	return (
 		<Image
-			src="/logo_kitchen.png"
+			src="/logo_tatar_kitchen.png"
 			alt={siteConfig.title}
 			width={26}
 			height={26}
-			//sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 			priority
 		/>
 	);
@@ -31,53 +30,54 @@ export default function Header() {
 
 	const { isAuth, session, status, setAuthState } = useAuthStore();
 
-
-	// const { data: session, status } = useSession();
-	// const isAuth = status === "authenticated";
-	// console.log("session", session);
-	// console.log("status", status);
-
 	const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 	const [isLoginOpen, setIsLoginOpen] = useState(false);
 
 	const handleSignOut = async () => {
-
 		try {
 			await signOutFunc();
 		} catch (error) {
-			console.log("error", error);
+			console.error("error", error);
 		}
 
 		setAuthState("unauthenticated", null);
 	};
 
 	const getNavItems = () => {
-		return siteConfig.navItems.map((item) => {
-			const isActive = pathname === item.href
-			return (
-				<NavbarItem key={item.href}>
-					<Link
-						color="foreground"
-						href={item.href}
-						className={`px-3 py-1 
-						 ${isActive ? "text-blue-500" : "text-foreground"}
-					   hover:text-blue-300 hover:border 
-				       hover:border-blue-300 hover:rounded-md 
-						 transition-colors 
-						 transition-border 
-						 duration-200`}
-					>
-						{item.label}
-					</Link>
-				</NavbarItem>
-			);
-		})
-	}
+		return siteConfig.navItems
+			.filter((item) => {
+				if (item.href === "/ingredients") {
+					return isAuth;
+				}
+				return true;
+			})
+			.map((item) => {
+				const isActive = pathname === item.href;
+
+				return (
+					<NavbarItem key={item.href}>
+						<Link
+							color="foreground"
+							href={item.href}
+							className={`px-3 py-1 
+              ${isActive ? "text-blue-500" : "text-foreground"} 
+              hover:text-blue-300 hover:border
+              hover:border-blue-300 hover:rounded-md
+              transition-colors
+              transition-border
+              duration-200`}
+						>
+							{item.label}
+						</Link>
+					</NavbarItem>
+				);
+			});
+	};
 
 	return (
 		<Navbar style={{ height: layoutConfig.headerHeight }}>
 			<NavbarBrand>
-				<Link href="/" className="flex gap-1 ">
+				<Link href="/" className="flex gap-1">
 					<Logo />
 					<p className="font-bold text-inherit">{siteConfig.title}</p>
 				</Link>

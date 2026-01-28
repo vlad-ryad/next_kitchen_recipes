@@ -12,21 +12,21 @@ import Title from "@/components/UI/layout/title";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin"]
 });
 
 export const metadata: Metadata = {
   title: siteConfig.title,
-  description: siteConfig.description,
+  description: siteConfig.description
 };
 
 export default async function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -40,26 +40,28 @@ export default async function RootLayout({
         <Providers>
           <SessionProvider session={session}>
             <AppLoader>
-              <Header />
-              <Title />
-              <main
-                style={{
-                  height: `calc(100vh - ${layoutConfig.headerHeight} - ${layoutConfig.footerHeight})`
-                }}
-                className="className={`flex flex-col max-w-[1024px] mx-auto px-[24px] justify-start items-center`}"
-              >
-                {children}
-              </main>
-              <footer
-                style={{ height: layoutConfig.footerHeight }}
-                className="w-full flex items-center justify-center py-3"
-              >
-                <p>{siteConfig.description}</p>
-              </footer>
+              <div className="flex min-h-screen flex-col justify-between">
+                <div className="flex flex-col">
+                  <Header />
+                  <main
+                    className={`flex flex-col max-w-[1024px] mx-auto px-[24px] justify-start items-center`}
+                  >
+                    <Title />
+                    {children}
+                  </main>
+                </div>
+
+                <footer
+                  className={`w-full flex items-center justify-center py-3`}
+                  style={{ height: layoutConfig.footerHeight }}
+                >
+                  <p>{siteConfig.description}</p>
+                </footer>
+              </div>
             </AppLoader>
           </SessionProvider>
         </Providers>
       </body>
-    </html >
+    </html>
   );
 }

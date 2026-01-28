@@ -27,3 +27,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* globals.css */
+[data-slot="listbox"] {
+  color: #000;
+}
+
+[data-slot="value"] {
+  color: #000;
+}
