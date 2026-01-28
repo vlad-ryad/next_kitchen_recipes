@@ -10,15 +10,8 @@ import { auth } from "@/auth/auth";
 import AppLoader from "@/hoc/app-loader";
 import Title from "@/components/UI/layout/title";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"]
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -40,22 +33,23 @@ export default async function RootLayout({
         <Providers>
           <SessionProvider session={session}>
             <AppLoader>
-              <div className="flex min-h-screen flex-col justify-between">
-                <div className="flex flex-col">
+              <div className="flex min-h-screen flex-col">
+                <div className="flex flex-col flex-1">
                   <Header />
-                  <main
-                    className={`flex flex-col max-w-[1024px] mx-auto px-[24px] justify-start items-center`}
-                  >
+                  <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
                     <Title />
-                    {children}
+                    <div className="py-4 sm:py-6">
+                      {children}
+                    </div>
                   </main>
                 </div>
-
                 <footer
-                  className={`w-full flex items-center justify-center py-3`}
+                  className="w-full flex items-center justify-center py-3 px-4"
                   style={{ height: layoutConfig.footerHeight }}
                 >
-                  <p>{siteConfig.description}</p>
+                  <p className="text-xs sm:text-sm text-center text-gray-600">
+                    {siteConfig.description}
+                  </p>
                 </footer>
               </div>
             </AppLoader>
