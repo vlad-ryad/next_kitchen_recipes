@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍲 Рецепты домашней кухни — Next.js 15
 
-## Getting Started
+Веб-приложение «Рецепты домашней кухни», разработанное на **Next.js 15** с использованием современного full-stack стека.  
+Проект создан в формате пошагового обучения: от инициализации до деплоя.
 
-First, run the development server:
+---
+
+## 🚀 Стек технологий
+
+### Frontend
+- **Next.js 15 (App Router)**
+- **HeroUI** — UI-компоненты
+- **Zustand** — управление состоянием
+- **Zod** — валидация данных
+
+### Backend
+- **PostgreSQL**
+- **Prisma ORM**
+- **Auth.js** — аутентификация и авторизация
+
+### Инструменты
+- **Postman** — тестирование API
+- **pgAdmin** — работа с базой данных
+- **Prisma Data Platform** — облачное хранилище БД
+- **Vercel** — деплой
+
+---
+
+## ✨ Возможности проекта
+
+- Регистрация и авторизация пользователей
+- Хранение сессий и состояния авторизации
+- Работа с рецептами и ингредиентами
+- Серверные действия и middleware
+- Файловый роутинг (App Router)
+- Модальные окна логина и регистрации
+- Валидация данных
+- Тестирование API
+- Деплой в облако
+
+---
+
+## 🧠 Архитектура и подходы
+
+- **App Router** и layout
+- **Server Actions**
+- **Middleware**
+- **Prisma Client**
+- **Zustand store** для auth и глобальной логики
+- Разделение UI и бизнес-логики
+- Обработка ошибок и edge-кейсов
+
+---
+
+## 🛠 Установка и запуск
 
 ```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
