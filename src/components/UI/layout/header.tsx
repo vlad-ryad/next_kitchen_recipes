@@ -25,7 +25,7 @@ import { Menu } from "lucide-react";
 export const Logo = () => {
 	return (
 		<Image
-			src="/logo_tatar_kitchen.png"
+			src="/logo_kitchen.png"
 			alt={siteConfig.title}
 			width={26}
 			height={26}
